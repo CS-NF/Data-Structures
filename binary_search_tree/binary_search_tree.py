@@ -11,6 +11,11 @@ class BinarySearchTree:
         self.right = None
 
     # Insert the given value into the tree
+
+    # if the value is greater then the given index
+    # append self.value to the right
+    # if the value is less then the given index
+    # append self.value to the left 
     def insert(self, value):
         pass
 
