@@ -20,7 +20,7 @@ class LRUCache:
 
     def __init__(self, limit=10):
         self.limit = limit
-        self.size = 0
+        self.max = 0
         self.list = DoublyLinkedList()
         self.cache = dict()
 
@@ -62,4 +62,27 @@ class LRUCache:
     #
 
     def set(self, key, value):
-        pass
+        # if key in self.cache:
+        #     new_node = self.cache[key]
+        #     new_node.value = (key, value)
+        #     self.list.move_to_end(new_node)
+        #     return
+        # if self.max >= self.limit:
+        #     self.list.delete([0])
+        #     self.list.remove_from_tail()
+        #     self.max -= 1
+        # overwrite the old value associated with the key with the newly-specified value
+
+        # Instructor's solution
+        if key in self.cache:
+            node = self.cache[key]
+            node.value = (key, value)
+            self.list.move_to_end(node)
+            return
+        if self.max == self.limit:
+            del self.cache[self.list.head.value[0]]
+            self.list.remove_from_head()
+            self.max -= 1
+        self.list.add_to_tail((key, value))
+        self.cache[key] = self.list.tail
+        self.max += 1 

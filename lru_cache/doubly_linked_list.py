@@ -68,7 +68,7 @@ class DoublyLinkedList:
         else:
             # We know that the list is populated
             self.tail.insert_after(value)
-            self.tail = self.tail.nex
+            self.tail = self.tail.next
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
