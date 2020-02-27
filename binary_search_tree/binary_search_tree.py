@@ -82,26 +82,38 @@ class BinarySearchTree:
     # if it's not return false 
     def contains(self, target):
         if target == self.value: # do an if statment to see if our target is equal to our self.value
-                return True # if it is then we will just return true and the code stops there
-            if not self.left: # if the value is not in the right part of the binary tree 
+            return True # if it is then we will just return true and the code stops there
+            if not self.left: # if the value is not in the right part of the binarytree 
                 return False # we will return False
             else:
                 return self.left.contains(target) # otherwise if not false then we want to return the value recursivly
         else:
-            if not self.right: # if the value is not in the right part of the binary tree 
+            if not self.right: # if the value is not in the right part of the binarytree 
                 return False  # we will return False
             else:
                 return self.right.contains(target) # otherwise if not false then we want to return the value recursivly
 
 
     # Return the maximum value found in the tree
+    
+    # *** Plan ***
+    # do an if statment see if self.right because we know that the max will be in the right part of the tree beacuse the right index will be bigger then the head index
+    # return the value of the right index
+    # else it will return the right side of the binary tree with the recursive call of get_max to get the biggest value
     def get_max(self):
-        pass
+        if not self.right: # seeing if the tree does not point to the right of the tree
+            return self.value # we will then just return the value 
+        else:
+            return self.right.get_max() # otherwise we will return the right part of the tree with the recursive call to get the biggest number in the right side of the tree
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
         pass
+
+
+
+
 
     # DAY 2 Project -----------------------
 
@@ -119,6 +131,11 @@ class BinarySearchTree:
     # in an iterative depth first traversal
     def dft_print(self, node):
         pass
+
+
+
+
+
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
