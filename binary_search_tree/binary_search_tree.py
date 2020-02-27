@@ -120,7 +120,7 @@ class BinarySearchTree:
         else:
             return None  
         if self.right: # if we are looking at the right part of the tree then execute code below
-            self.right.for_each(cb) # iterates through the right part of the tree getting ever node 
+            self.right.for_each(cb) # iterates through the right part of the tree getting every node 
         else:
             return None
 
@@ -132,8 +132,20 @@ class BinarySearchTree:
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
+
+    # *** Plan ***
+    # meaning of in order print function: It should take the root/head of the binary tree and get all the values in the tree in order
+    # find the root/head of the stack to see if it's there 
+    # if it is there then remove it from our stack
+
+    # do another if statment to see 
     def in_order_print(self, node):
-        pass
+        if node: # if there is a node 
+            self.in_order_print(node.left)
+            print(node.value) # print the value of that node
+            self.in_order_print(node.right)
+        else:
+            return 
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
