@@ -101,8 +101,8 @@ class BinarySearchTree:
     # return the value of the right index
     # else it will return the right side of the binary tree with the recursive call of get_max to get the biggest value
     def get_max(self):
-        if not self.right: # seeing if the tree does not point to the right of the tree
-            return self.value # we will then just return the value 
+        if not self.right: # seeing if the tree does not point to the right of the tree if so code below get exicuted
+            return self.value # we will then just return the value of the binary tree most likely on the left
         else:
             return self.right.get_max() # otherwise we will return the right part of the tree with the recursive call to get the biggest number in the right side of the tree
 
