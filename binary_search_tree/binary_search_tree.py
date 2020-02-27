@@ -108,8 +108,21 @@ class BinarySearchTree:
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
+
+    # *** Plan ***
+    # see if index/node in the left part of the tree 
+    # if so then we will assign for_each to the left part of the tree. Since we are doing this recursily it will iterate through the left part of the tree and get ever sign index/node 
+    # if index/node in the right part of the tree 
+    # then we will assign for_each to teh right part of the tree. Since we are doing this recursively it will iterate through the right part of the tree and get ever sign index/node 
     def for_each(self, cb):
-        pass
+        if self.left: # if we are looking at the left part of the tree then execute code below
+            self.left.for_each(cb) # iterates through the left part of the tree getting ever node 
+        else:
+            return None  
+        if self.right: # if we are looking at the right part of the tree then execute code below
+            self.right.for_each(cb) # iterates through the right part of the tree getting ever node 
+        else:
+            return None
 
 
 
