@@ -73,7 +73,7 @@ class DoublyLinkedList:
         else:
             # We know that the list is populated
             self.tail.insert_after(value)
-            self.tail = self.tail.nex
+            self.tail = self.tail.next
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
@@ -264,26 +264,42 @@ class BinarySearchTree:
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+    # *** Plan ***
+    # same plan as stack only replace stack with queue since it's a breadth first 
     def bft_print(self, node):
-        pass
+        queue = Queue()
+        queue.enqueue(node)
+        while queue.len() > 0:
+            current = queue.dequeue()
+            print(current.value)
+            if current.left:
+                queue.enqueue(current.left)
+            if current.right:
+                queue.enqueue(current.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
 
     # *** Plan ***
-    # do a while loop saying while there is a node 
-    # 
-    # current_node = self.value
+    # initializing stack class
+    # add our node to head 
+    # as long as the stack is greater then zero the code below will execute 
+    # created a variable called current_node and it's equal to the  poped stack 
+    # print out our right node
+    # if we are on the left side of the tree
+    # we want to then pop the left node
+    # if we are on the right side of the tree
+    # we want to pop the right node
     def dft_print(self, node):
         stack = Stack() # initializing stack class
         stack.push(node) # add our node to head 
         while stack.len() > 0: # as long as the stack is greater then zero the code below will execute 
             current_node = stack.pop() # created a variable called current_node and it's equal to the  poped stack 
-            print(current_node.right) # print out our right node
+            print(current_node.value) # print out the nodes value
             if current_node.left: # if we are on the left side of the tree
                 stack.push(current_node.left) # we want to then pop the left node
-            if current_node.right:
-                stack.push(current_node.right) # otherwise we want to pop the right node
+            if current_node.right: # if we are on the right side of the tree
+                stack.push(current_node.right) # we want to pop the right node
 
 
 
